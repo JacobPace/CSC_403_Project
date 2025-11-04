@@ -7,6 +7,9 @@ class State {
     setNeighbors(x){
         this.neighbors = x;
     }
+    isVisited(){
+        this.visited = true;
+    }
 }
 
 function main(){
@@ -126,3 +129,4 @@ function nextState(){
     document.getElementById("popup").style.display = "none";
    }
 }
+
