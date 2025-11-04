@@ -1,0 +1,38 @@
+body {
+height: 100%;
+}
+
+#popup {  
+  font-weight: bold;
+  position:fixed;
+  left:0;
+  right:0;
+  margin: auto;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 100px;
+  height: auto;
+  padding: 15px; 
+  color: white; 
+  background: crimson;
+  text-align: center;
+  box-sizing: content-box;
+  border: 2px ridge black;
+}
+
+button {
+  margin-right: 10px;
+  float: left;
+  color: white;
+  background: crimson; 
+  padding: 15px;
+}
+
+#text {
+  text-align: justify;
+    -webkit-column-count: 3;
+    -moz-column-count: 3; 
+    column-count: 3;
+}
