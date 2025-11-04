@@ -115,3 +115,14 @@ function setAllNeighbors(){
     Wisconsin.setNeighbors([Michigan, Illinois, Iowa, Minnesota]);
     Wyoming.setNeighbors([Montana, South_Dakota, Nebraska, Colorado, Utah, Idaho]);
 }
+
+function nextState(){
+   const popup = document.getElementById("popup").style.display;
+
+   if (popup == "none"){
+    document.getElementById("popup").style.display = "inline-block";
+   }
+   else {
+    document.getElementById("popup").style.display = "none";
+   }
+}
