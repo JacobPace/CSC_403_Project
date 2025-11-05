@@ -126,16 +126,16 @@ function setAllNeighbors(){
 }
 
 function nextState(){
-    //selectState();
-   const popup = document.getElementById("popup").style.display;
+    selectState();
+    const popup = document.getElementById("popup");
 
-   if (popup == "none"){
-    document.getElementById("popup").style.display = "inline-block";
-    //popup.innerHTML = currentState.name;
-   }
-   else {
-    document.getElementById("popup").style.display = "none";
-   }
+    if (popup.style.display == "none"){
+        popup.style.display = "inline-block";
+        popup.innerHTML = currentState.name;
+    }
+    else {
+        popup.style.display = "none";
+    }
 }
 
 // Returns true/false if all states have been visited
@@ -192,6 +192,7 @@ function selectState(){
         currentState = AllStates[getRandomInt(0, 49)];
     }
 }
+
 
 
 
