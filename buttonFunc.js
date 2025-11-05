@@ -120,6 +120,7 @@ function setAllNeighbors(){
 }
 
 function nextState(){
+    selectState();
    const popup = document.getElementById("popup").style.display;
 
    if (popup == "none"){
@@ -137,11 +138,57 @@ const AllStates = [Alabama, Alaska, Arizona, Arkansas, California, Colorado, Con
     North_Dakota, Ohio, Oklahoma, Oregon, Pennsylvania, Rhode_Island, South_Carolina, South_Dakota,
     Tennessee, Texas, Utah, Vermont, Virginia, Washington, West_Virginia, Wisconsin, Wyoming];
 
+// Returns true/false if all states have been visited
 function allVisited(){
     for (let i = 0; i < 49; i++){
         if (AllSates[i].visited == false){
             return false;
         }
     return true;
+    }
+}
+
+// Returns true/false if any state has been visited
+function anyVisited(){
+    for (let i = 0; i < 49; i++){
+        if(AllSates[i].visited == true){
+            return true;
+        }
+    }
+    return false;
+}
+
+function findNeighbor(state){
+    let options = [];
+    // Find all unvisted neighbors of current state
+    for (let i = 0; i < state.neighbors.length - 1 ; i++){
+        if(state.neighbors[i].visited == false){
+            options.push(state.neighbors[i]);
+        }
+    }
+    // Randomly select a non visited neighbor of the current state
+    if (options.length > 0){
+        let randomNum = getRandomInt(0, options.length - 1);
+        return options[randomNum];
+    }
+    // Find neighbor of a neighbor that has yet to be visited if all current neighbors have been visited
+    for(let j = 0; j < state.neighbors.length - 1; j++){
+        return findNeighbor(state.neighbors[j]);
+    }
+    
+}
+let currentState;
+function selectState(){
+    // If all states have been visited, do the celebration thingy
+    if(AllVisited()){
+        return;
+    }
+    // If any state has already been visited, move to its neighbor
+    else if(anyVisited()){
+        findNeighbor(currentState);
+    }
+    // No state has been visited, randomly select a starting point
+    else{
+        currentState = AllStates[getRandomInt(0, 49));
     }
 }
