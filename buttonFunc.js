@@ -125,6 +125,8 @@ function setAllNeighbors(){
     Wyoming.setNeighbors([Montana, South_Dakota, Nebraska, Colorado, Utah, Idaho]);
 }
 
+
+ // Moves to the next state and toggles the popup display based on visibility.
 function nextState(){
     selectState();
     const popup = document.getElementById("popup");
@@ -192,6 +194,7 @@ function selectState(){
         currentState = AllStates[getRandomInt(0, 49)];
     }
 }
+
 
 
 
