@@ -125,6 +125,7 @@ function nextState(){
 
    if (popup == "none"){
     document.getElementById("popup").style.display = "inline-block";
+    popup.innerHTML = currentState.name;
    }
    else {
     document.getElementById("popup").style.display = "none";
@@ -192,3 +193,4 @@ function selectState(){
         currentState = AllStates[getRandomInt(0, 49));
     }
 }
+
