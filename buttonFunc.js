@@ -120,12 +120,12 @@ function setAllNeighbors(){
 }
 
 function nextState(){
-    selectState();
+    //selectState();
    const popup = document.getElementById("popup").style.display;
 
    if (popup == "none"){
     document.getElementById("popup").style.display = "inline-block";
-    popup.innerHTML = currentState.name;
+    //popup.innerHTML = currentState.name;
    }
    else {
     document.getElementById("popup").style.display = "none";
@@ -193,4 +193,5 @@ function selectState(){
         currentState = AllStates[getRandomInt(0, 49));
     }
 }
+
 
