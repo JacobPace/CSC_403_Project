@@ -199,7 +199,7 @@ let currentState;
 function selectState(){
     // If all states have been visited, do the celebration thingy
     if(allVisited()){
-        return;
+        console.log("All States have been visited!!!!");
     }
     // If any state has already been visited, move to its neighbor
     else if(anyVisited()){
@@ -211,4 +211,5 @@ function selectState(){
         currentState = AllStates[getRandomInt(0, 49)];
     }
 }
+
 
