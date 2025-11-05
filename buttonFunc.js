@@ -1,13 +1,3 @@
-/*
-Class for the State object that contains the values:
-    name -> string: name of the state to be displayed on the popup
-    visited -> boolean: is true/false depeing on if the state has been visited yet to prevent it being selected twice (false by default)
-    neighbors -> array: contains a list of neighboring states that can be accessed to move the currently selected state to a non-visited neighbor
-
-    Also contains the methods:
-    setNeighbors(x) -> inputs an array of states to set as the neighbors of the state
-    isVisited() -> setter method to change the visited boolean from "false" to "true" to indicate thatit has been visited
-*/
 class State {
     constructor(name, visited, neighbors){
         this.name = name;
@@ -89,7 +79,7 @@ function setAllNeighbors(){
     Arkansas.setNeighbors([Mississippi, Missouri, Oklahoma, Louisiana, Tennessee, Texas]);
     California.setNeighbors([Oregon, Nevada, Arizona]);
     Colorado.setNeighbors([Wyoming, Nebraska, Kansas, Oklahoma, Utah, New_Mexico, Arizona]);
-    Conneticut.setNeighbors([New_York, Massachusetts, Rhode_Island]);
+    Connecticut.setNeighbors([New_York, Massachusetts, Rhode_Island]);
     Delaware.setNeighbors([Maryland, New_Jersey, Pennsylvania]);
     Florida.setNeighbors([Georgia, Alabama]);
     Georgia.setNeighbors([Tennessee, North_Carolina, South_Carolina, Florida, Alabama]);
@@ -103,7 +93,7 @@ function setAllNeighbors(){
     Louisiana.setNeighbors([Arkansas, Mississippi, Texas]);
     Maine.setNeighbors([New_Hampshire, Massachusetts]);
     Maryland.setNeighbors([West_Virginia, Pennsylvania, Delaware, Virginia]);
-    Massachusetts.setNeighbors([Maine, New_Hampshire, Vermont, New_York, Conneticut, Rhode_Island]);
+    Massachusetts.setNeighbors([Maine, New_Hampshire, Vermont, New_York, Connecticut, Rhode_Island]);
     Michigan.setNeighbors([Wisconsin, Indiana, Ohio]);
     Minnesota.setNeighbors([North_Dakota, South_Dakota, Wisconsin, Iowa]);
     Mississippi.setNeighbors([Arkansas, Louisiana, Tennessee, Alabama]);
@@ -114,14 +104,14 @@ function setAllNeighbors(){
     New_Hampshire.setNeighbors([Maine, Vermont, Massachusetts]);
     New_Jersey.setNeighbors([New_York, Pennsylvania, Delaware]);
     New_Mexico.setNeighbors([Colorado, Oklahoma, Texas, Arizona, Utah]);
-    New_York.setNeighbors([Vermont, Massachusetts, Conneticut, Rhode_Island, New_Jersey, Pennsylvania]);
+    New_York.setNeighbors([Vermont, Massachusetts, Connecticut, Rhode_Island, New_Jersey, Pennsylvania]);
     North_Carolina.setNeighbors([Virginia, Tennessee, South_Carolina]);
     North_Dakota.setNeighbors([Minnesota, South_Dakota, Montana]);
     Ohio.setNeighbors([Michigan, Pennsylvania, West_Virginia, Kentucky, Indiana]);
     Oklahoma.setNeighbors([Kansas, Arkansas, Texas, New_Mexico, Colorado]);
     Oregon.setNeighbors([Washington, Idaho, Nevada, California]);
     Pennsylvania.setNeighbors([New_York, New_Jersey, Maryland, West_Virginia, Ohio]);
-    Rhode_Island.setNeighbors([Massachusetts, Conneticut, New_York]);
+    Rhode_Island.setNeighbors([Massachusetts, Connecticut, New_York]);
     South_Carolina.setNeighbors([North_Carolina, Georgia]);
     South_Dakota.setNeighbors([North_Dakota, Minnesota, Iowa, Nebraska, Wyoming, Montana]);
     Tennessee.setNeighbors([Kentucky, Virginia, North_Carolina, Georgia, Alabama, Mississippi, Arkansas, Missouri]);
@@ -135,12 +125,6 @@ function setAllNeighbors(){
     Wyoming.setNeighbors([Montana, South_Dakota, Nebraska, Colorado, Utah, Idaho]);
 }
 
-// Function to generate a random INT between 2 values
-function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
 
  // Moves to the next state and toggles the popup display based on visibility.
 function nextState(){
@@ -199,11 +183,10 @@ let currentState;
 function selectState(){
     // If all states have been visited, do the celebration thingy
     if(allVisited()){
-        console.log("All States have been visited!!!!");
+        return;
     }
     // If any state has already been visited, move to its neighbor
     else if(anyVisited()){
-        currentState.isVisited();
         findNeighbor(currentState);
     }
     // No state has been visited, randomly select a starting point
@@ -211,5 +194,8 @@ function selectState(){
         currentState = AllStates[getRandomInt(0, 49)];
     }
 }
+
+
+
 
 

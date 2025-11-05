@@ -36,3 +36,10 @@ button {
     -moz-column-count: 3; 
     column-count: 3;
 }
+
+#map {
+  display: block;
+  width: 125%;          /* make it narrower than the container */
+  margin: 50px auto;   /* centers horizontally + adds some space above */
+  margin-left: 300px;
+}
