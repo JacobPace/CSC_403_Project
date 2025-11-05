@@ -144,12 +144,15 @@ function getRandomInt(min, max) {
 
  // Moves to the next state and toggles the popup display based on visibility.
 function nextState(){
-    selectState();
+    
     const popup = document.getElementById("popup");
 
     if (popup.style.display == "none"){
+        selectState();
         popup.style.display = "inline-block";
         popup.innerHTML = currentState.name;
+        currentState.isVisited();
+        visitedStates++;
     }
     else {
         popup.style.display = "none";
@@ -177,39 +180,57 @@ function anyVisited(){
 }
 
 function findNeighbor(state){
+    console.log("Finding neighbor");
     let options = [];
     // Find all unvisted neighbors of current state
-    for (let i = 0; i < state.neighbors.length - 1 ; i++){
+    for (let i = 0; i < state.neighbors.length; i++){
         if(state.neighbors[i].visited == false){
             options.push(state.neighbors[i]);
         }
     }
     // Randomly select a non visited neighbor of the current state
     if (options.length > 0){
-        let randomNum = getRandomInt(0, options.length - 1);
+        let randomNum = getRandomInt(0, options.length-1);
         return options[randomNum];
     }
+    
+    return findNeighborNeighbor(state);
+}
+
+function findNeighborNeighbor(newState){
     // Find neighbor of a neighbor that has yet to be visited if all current neighbors have been visited
-    for(let j = 0; j < state.neighbors.length - 1; j++){
-        return findNeighbor(state.neighbors[j]);
+    console.log("Finding neighbor of neighbor");
+    let j;
+    for(j = 0; j < newState.neighbors.length; j++){
+        let k;
+        let newerState = newState.neighbors[j];
+        for(k = 0; k < newerState.neighbors.length; k++){
+            if (newerState.neighbors[k].visited == false){
+                return newerState.neighbors[k];
+            }
+        }
+    return findNeighborNeighbor(newState.neighbors[getRandomInt(0, newState.neighbors.length-1)]);
     }
+    
 }
 
 let currentState;
+let visitedStates = 0;
 function selectState(){
-    // If all states have been visited, do the celebration thingy
-    if(allVisited()){
+    console.log(visitedStates);
+    
+    // If all states have been visited, do the celebration
+    if(allVisited() && visitedStates >= 50){
         console.log("All States have been visited!!!!");
     }
     // If any state has already been visited, move to its neighbor
     else if(anyVisited()){
         currentState.isVisited();
-        findNeighbor(currentState);
+        currentState = findNeighbor(currentState);
     }
     // No state has been visited, randomly select a starting point
     else{
+        visitedStates++;
         currentState = AllStates[getRandomInt(0, 49)];
     }
 }
-
-
