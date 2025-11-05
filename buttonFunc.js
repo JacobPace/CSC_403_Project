@@ -1,3 +1,13 @@
+/*
+Class for the State object that contains the values:
+    name -> string: name of the state to be displayed on the popup
+    visited -> boolean: is true/false depeing on if the state has been visited yet to prevent it being selected twice (false by default)
+    neighbors -> array: contains a list of neighboring states that can be accessed to move the currently selected state to a non-visited neighbor
+
+    Also contains the methods:
+    setNeighbors(x) -> inputs an array of states to set as the neighbors of the state
+    isVisited() -> setter method to change the visited boolean from "false" to "true" to indicate thatit has been visited
+*/
 class State {
     constructor(name, visited, neighbors){
         this.name = name;
@@ -201,3 +211,4 @@ function selectState(){
         currentState = AllStates[getRandomInt(0, 49)];
     }
 }
+
