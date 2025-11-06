@@ -6,6 +6,11 @@ body {
   background-repeat: no-repeat;
   background-color: rgba(255,255,255,0.4);
   background-blend-mode: lighten;
+  font-weight: bold;
+  font-size: 60px;
+  font-family: "Copperplate", "Papyrus", fantasy;
+  text-shadow: 5px 5px 0px grey;
+  text-align: center;
 }
 
 #popup {  
@@ -41,5 +46,4 @@ button {
     -webkit-column-count: 3;
     -moz-column-count: 3; 
     column-count: 3;
-
 }
