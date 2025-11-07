@@ -1,5 +1,16 @@
 body {
-height: 100%;
+  height: 100vh;
+  background: url('./city.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgba(255,255,255,0.4);
+  background-blend-mode: lighten;
+  font-weight: bold;
+  font-size: 60px;
+  font-family: "Copperplate", "Papyrus", fantasy;
+  text-shadow: 5px 5px 0px grey;
+  text-align: center;
 }
 
 #popup {  
@@ -12,14 +23,15 @@ height: 100%;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  width: 100px;
+  width: 600px;
   height: auto;
   padding: 15px; 
-  color: white; 
-  background: crimson;
+  color: black; 
+  background: white;
   text-align: center;
   box-sizing: content-box;
   border: 2px ridge black;
+  z-index: 70;
 }
 
 button {
@@ -35,4 +47,11 @@ button {
     -webkit-column-count: 3;
     -moz-column-count: 3; 
     column-count: 3;
+}
+
+#map {
+  display: block;
+  width: 125%;       
+  margin: 50px auto;  
+  margin-left: 300px;
 }
