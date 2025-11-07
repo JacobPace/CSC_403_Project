@@ -41,9 +41,9 @@ let Indiana = new State("Indiana", "IN", false, []);
 let Iowa = new State("Iowa", "IA", false, []);
 let Kansas = new State("Kansas", "KS", false, []);
 let Kentucky = new State("Kentucky", "KY", false, []);
-let Louisiana = new State("Louisiana", "LA" false, []);
+let Louisiana = new State("Louisiana", "LA", false, []);
 let Maine = new State("Maine", "ME", false, []);
-let Maryland = new State("Maryland", "MD" false, []);
+let Maryland = new State("Maryland", "MD", false, []);
 let Massachusetts = new State("Massachusetts", "MA", false, []);
 let Michigan = new State("Michigan", "MI", false, []);
 let Minnesota = new State("Minnesota", "MN", false, []);
@@ -257,6 +257,7 @@ function selectState(){
         currentState = AllStates[getRandomInt(0, 49)];
     }
 }
+
 
 
 
