@@ -169,6 +169,7 @@ simplemaps_usmap.hooks.click_state = function(id){
 function nextState(){
     
     const popup = document.getElementById("popup");
+    const button = document.getElementById("button");
 
     if (popup.style.display == "none"){
         selectState();
@@ -178,9 +179,11 @@ function nextState(){
         visitedStates++;
         simplemaps_usmap_mapdata.state_specific[currentState.id].color = "#ebb866";
         simplemaps_usmap.refresh();
+        button.innerHTML = "Close Window";
     }
     else {
         popup.style.display = "none";
+        button.innerHTML = "Next State";
     }
 }
 
@@ -257,6 +260,7 @@ function selectState(){
         currentState = AllStates[getRandomInt(0, 49)];
     }
 }
+
 
 
 
