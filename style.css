@@ -49,3 +49,9 @@ button {
     column-count: 3;
 }
 
+#map {
+  display: block;
+  width: 125%;       
+  margin: 50px auto;  
+  margin-left: 300px;
+}
