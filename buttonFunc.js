@@ -1,3 +1,13 @@
+/*
+Class for the State object that contains the values:
+    name -> string: name of the state to be displayed on the popup
+    visited -> boolean: is true/false depeing on if the state has been visited yet to prevent it being selected twice (false by default)
+    neighbors -> array: contains a list of neighboring states that can be accessed to move the currently selected state to a non-visited neighbor
+
+    Also contains the methods:
+    setNeighbors(x) -> inputs an array of states to set as the neighbors of the state
+    isVisited() -> setter method to change the visited boolean from "false" to "true" to indicate thatit has been visited
+*/
 class State {
     constructor(name, visited, neighbors){
         this.name = name;
@@ -125,6 +135,12 @@ function setAllNeighbors(){
     Wyoming.setNeighbors([Montana, South_Dakota, Nebraska, Colorado, Utah, Idaho]);
 }
 
+// Function to generate a random INT between 2 values
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
  // Moves to the next state and toggles the popup display based on visibility.
 function nextState(){
@@ -217,4 +233,5 @@ function selectState(){
         visitedStates++;
         currentState = AllStates[getRandomInt(0, 49)];
     }
+
 }
