@@ -135,6 +135,9 @@ function setAllNeighbors(){
     Wyoming.setNeighbors([Montana, South_Dakota, Nebraska, Colorado, Utah, Idaho]);
 }
 
+let currentState;
+let visitedStates = 0;
+
 // Function to generate a random INT between 2 values
 function getRandomInt(min, max) {
     min = Math.ceil(min);
@@ -142,10 +145,22 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-// Event handler for states using SimpleMaps
+// Event handler for states using SimpleMaps. Allows for grabbing the name of the state selected and
+// associating it with the respective state object
 simplemaps_usmap.hooks.click_state = function(id){
-    simplemaps_usmap_mapdata.state_specific[id].color = "#ebb866";
-    simplemaps_usmap.refresh();
+    currentState = simplemaps_usmap_mapdata.state_specific[id].name;
+    currentState = AllStates.find(state => state.name === currentState);
+    if (currentState.visited == false) {
+        currentState.isVisited();
+        visitedStates++;
+        console.log(currentState.name + " has been visited, and the value of visited is " + currentState.visited);
+        console.log("There are " + visitedStates + " visited states.");
+        simplemaps_usmap_mapdata.state_specific[id].color = "#ebb866";
+        simplemaps_usmap.refresh();
+    }
+    else {
+        ; // do nothing if user clicks the state again
+    }
 }
 
  // Moves to the next state and toggles the popup display based on visibility.
@@ -220,8 +235,6 @@ function findNeighborNeighbor(newState){
     
 }
 
-let currentState;
-let visitedStates = 0;
 function selectState(){
     console.log(visitedStates);
     
@@ -241,5 +254,6 @@ function selectState(){
     }
 
 }
+
 
 
