@@ -25,7 +25,7 @@ class State {
 }
 
 let Alabama = new State("Alabama", "AL", false, []);
-let Alaska = new State("Alaska", "Ak", false, []);
+let Alaska = new State("Alaska", "AK", false, []);
 let Arizona = new State("Arizona", "AZ", false, []);
 let Arkansas = new State("Akansas", "AR", false, []);
 let California = new State("California", "CA", false, []);
@@ -257,6 +257,7 @@ function selectState(){
         currentState = AllStates[getRandomInt(0, 49)];
     }
 }
+
 
 
 
