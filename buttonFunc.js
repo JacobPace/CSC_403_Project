@@ -1,6 +1,7 @@
 /*
 Class for the State object that contains the values:
     name -> string: name of the state to be displayed on the popup
+    id -> allows for easier integration with simplemaps.
     visited -> boolean: is true/false depeing on if the state has been visited yet to prevent it being selected twice (false by default)
     neighbors -> array: contains a list of neighboring states that can be accessed to move the currently selected state to a non-visited neighbor
 
@@ -9,8 +10,9 @@ Class for the State object that contains the values:
     isVisited() -> setter method to change the visited boolean from "false" to "true" to indicate thatit has been visited
 */
 class State {
-    constructor(name, visited, neighbors){
+    constructor(name, id, visited, neighbors){
         this.name = name;
+        this.id - id;
         this.visited = false;
         this.neighbors = [];
     }
@@ -22,56 +24,56 @@ class State {
     }
 }
 
-let Alabama = new State("Alabama", false, []);
-let Alaska = new State("Alaska", false, []);
-let Arizona = new State("Arizona", false, []);
-let Arkansas = new State("Akansas", false, []);
-let California = new State("California", false, []);
-let Colorado = new State("Colorado", false, []);
-let Connecticut = new State("Connecticut", false, []);
-let Delaware = new State("Delaware", false, []);
-let Florida = new State("Florida", false, []);
-let Georgia = new State("Georgia", false, []);
-let Hawaii = new State("Hawaii", false, []);
-let Idaho = new State("Idaho", false, []);
-let Illinois = new State("Illinois", false, []);
-let Indiana = new State("Indiana", false, []);
-let Iowa = new State("Iowa", false, []);
-let Kansas = new State("Kansas", false, []);
-let Kentucky = new State("Kentucky", false, []);
-let Louisiana = new State("Louisiana", false, []);
-let Maine = new State("Maine", false, []);
-let Maryland = new State("Maryland", false, []);
-let Massachusetts = new State("Massachusetts", false, []);
-let Michigan = new State("Michigan", false, []);
-let Minnesota = new State("Minnesota", false, []);
-let Mississippi = new State("Mississippi", false, []);
-let Missouri = new State("Missouri", false, []);
-let Montana = new State("Montana", false, []);
-let Nebraska = new State("Nebraska", false, []);
-let Nevada = new State("Nevada", false, []);
-let New_Hampshire = new State("New Hampshire", false, []);
-let New_Jersey = new State("New Jersey", false, []);
-let New_Mexico = new State("New Mexico", false, []);
-let New_York = new State("New York", false, []);
-let North_Carolina = new State("North Carolina", false, []);
-let North_Dakota = new State("North Dakota", false, []);
-let Ohio = new State("Ohio", false, []);
-let Oklahoma = new State("Oklahoma", false, []);
-let Oregon = new State("Oregon", false, []);
-let Pennsylvania = new State("Pennsylvania", false, []);
-let Rhode_Island = new State("Rhode Island", false, []);
-let South_Carolina = new State("South Carolina", false, []);
-let South_Dakota = new State("South Dakota", false, []);
-let Tennessee = new State("Tennessee", false, []);
-let Texas = new State("Texas", false, []);
-let Utah = new State("Utah", false, []);
-let Vermont = new State("Vermont", false, []);
-let Virginia = new State("Virginia", false, []);
-let Washington = new State("Washington", false, []);
-let West_Virginia = new State("West Virginia", false, []);
-let Wisconsin = new State("Wisconsin", false, []);
-let Wyoming = new State("Wyoming", false, []);
+let Alabama = new State("Alabama", "AL", false, []);
+let Alaska = new State("Alaska", "Ak", false, []);
+let Arizona = new State("Arizona", "AZ", false, []);
+let Arkansas = new State("Akansas", "AR", false, []);
+let California = new State("California", "CA", false, []);
+let Colorado = new State("Colorado", "CO", false, []);
+let Connecticut = new State("Connecticut", "CT", false, []);
+let Delaware = new State("Delaware", "DE", false, []);
+let Florida = new State("Florida", "FL", false, []);
+let Georgia = new State("Georgia", "GA", false, []);
+let Hawaii = new State("Hawaii", "HI", false, []);
+let Idaho = new State("Idaho", "ID", false, []);
+let Illinois = new State("Illinois", "IL", false, []);
+let Indiana = new State("Indiana", "IN", false, []);
+let Iowa = new State("Iowa", "IA", false, []);
+let Kansas = new State("Kansas", "KS", false, []);
+let Kentucky = new State("Kentucky", "KY", false, []);
+let Louisiana = new State("Louisiana", "LA" false, []);
+let Maine = new State("Maine", "ME", false, []);
+let Maryland = new State("Maryland", "MD" false, []);
+let Massachusetts = new State("Massachusetts", "MA", false, []);
+let Michigan = new State("Michigan", "MI", false, []);
+let Minnesota = new State("Minnesota", "MN", false, []);
+let Mississippi = new State("Mississippi", "MS", false, []);
+let Missouri = new State("Missouri", "MO", false, []);
+let Montana = new State("Montana", "MT", false, []);
+let Nebraska = new State("Nebraska", "NE", false, []);
+let Nevada = new State("Nevada", "NV", false, []);
+let New_Hampshire = new State("New Hampshire", "NH", false, []);
+let New_Jersey = new State("New Jersey", "NJ", false, []);
+let New_Mexico = new State("New Mexico", "NM", false, []);
+let New_York = new State("New York", "NY", false, []);
+let North_Carolina = new State("North Carolina", "NC", false, []);
+let North_Dakota = new State("North Dakota", "ND", false, []);
+let Ohio = new State("Ohio", "OH", false, []);
+let Oklahoma = new State("Oklahoma", "OK", false, []);
+let Oregon = new State("Oregon", "OR", false, []);
+let Pennsylvania = new State("Pennsylvania", "PA", false, []);
+let Rhode_Island = new State("Rhode Island", "RI", false, []);
+let South_Carolina = new State("South Carolina", "SC", false, []);
+let South_Dakota = new State("South Dakota", "SD", false, []);
+let Tennessee = new State("Tennessee", "TN", false, []);
+let Texas = new State("Texas", "TX", false, []);
+let Utah = new State("Utah", "UT", false, []);
+let Vermont = new State("Vermont", "VT", false, []);
+let Virginia = new State("Virginia", "VA", false, []);
+let Washington = new State("Washington", "WA", false, []);
+let West_Virginia = new State("West Virginia", "WV", false, []);
+let Wisconsin = new State("Wisconsin", "WI", false, []);
+let Wyoming = new State("Wyoming", "WY", false, []);
 
 const AllStates = [Alabama, Alaska, Arizona, Arkansas, California, Colorado, Connecticut,
     Delaware, Florida, Georgia, Hawaii, Idaho, Illinois, Indiana, Iowa, Kansas, Kentucky,
@@ -174,6 +176,8 @@ function nextState(){
         popup.innerHTML = currentState.name;
         currentState.isVisited();
         visitedStates++;
+        simplemaps_usmap_mapdata.state_specific[currentState.id].color = "#ebb866";
+        simplemaps_usmap.refresh();
     }
     else {
         popup.style.display = "none";
@@ -252,8 +256,8 @@ function selectState(){
         visitedStates++;
         currentState = AllStates[getRandomInt(0, 49)];
     }
-
 }
+
 
 
 
