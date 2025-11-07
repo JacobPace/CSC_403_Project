@@ -12,7 +12,7 @@ Class for the State object that contains the values:
 class State {
     constructor(name, id, visited, neighbors){
         this.name = name;
-        this.id - id;
+        this.id = id;
         this.visited = false;
         this.neighbors = [];
     }
@@ -257,6 +257,7 @@ function selectState(){
         currentState = AllStates[getRandomInt(0, 49)];
     }
 }
+
 
 
 
