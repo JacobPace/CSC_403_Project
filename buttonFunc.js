@@ -142,6 +142,12 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+// Event handler for states using SimpleMaps
+simplemaps_usmap.hooks.click_state = function(id){
+    simplemaps_usmap_mapdata.state_specific[id].color = "#ebb866";
+    simplemaps_usmap.refresh();
+}
+
  // Moves to the next state and toggles the popup display based on visibility.
 function nextState(){
     
@@ -235,4 +241,5 @@ function selectState(){
     }
 
 }
+
 
