@@ -9,7 +9,6 @@ body {
   font-weight: bold;
   font-size: 60px;
   font-family: "Copperplate", "Papyrus", fantasy;
-  text-shadow: 5px 5px 0px grey;
   text-align: center;
 }
 
@@ -55,3 +54,4 @@ button {
   margin: 50px auto;  
   margin-left: 300px;
 }
+
