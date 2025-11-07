@@ -34,11 +34,18 @@ body {
 }
 
 button {
-  margin-right: 10px;
+  display: block;
+  width: 150px;
+  position: absolute;
+  margin: 0 auto;
   float: left;
   color: white;
   background: crimson; 
   padding: 15px;
+  bottom: 0px;
+  left: 45%;
+  
+  border-radius: 8px;
 }
 
 #text {
@@ -54,4 +61,3 @@ button {
   margin: 50px auto;  
   margin-left: 300px;
 }
-
