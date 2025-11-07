@@ -28,7 +28,7 @@ let Arizona = new State("Arizona", false, []);
 let Arkansas = new State("Akansas", false, []);
 let California = new State("California", false, []);
 let Colorado = new State("Colorado", false, []);
-let Conneticut = new State("Conneticut", false, []);
+let Connecticut = new State("Connecticut", false, []);
 let Delaware = new State("Delaware", false, []);
 let Florida = new State("Florida", false, []);
 let Georgia = new State("Georgia", false, []);
@@ -73,7 +73,7 @@ let West_Virginia = new State("West Virginia", false, []);
 let Wisconsin = new State("Wisconsin", false, []);
 let Wyoming = new State("Wyoming", false, []);
 
-const AllStates = [Alabama, Alaska, Arizona, Arkansas, California, Colorado, Conneticut,
+const AllStates = [Alabama, Alaska, Arizona, Arkansas, California, Colorado, Connecticut,
     Delaware, Florida, Georgia, Hawaii, Idaho, Illinois, Indiana, Iowa, Kansas, Kentucky,
     Louisiana, Maine, Maryland, Massachusetts, Michigan, Minnesota, Mississippi, Missouri,
     Montana, Nebraska, Nevada, New_Hampshire, New_Jersey, New_Mexico, New_York, North_Carolina,
@@ -235,3 +235,4 @@ function selectState(){
     }
 
 }
+
