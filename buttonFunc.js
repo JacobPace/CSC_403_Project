@@ -190,8 +190,8 @@ function allVisited(){
         if (AllStates[i].visited == false){
             return false;
         }
-    return true;
     }
+    return true;
 }
 
 // Returns true/false if any state has been visited
@@ -257,6 +257,7 @@ function selectState(){
         currentState = AllStates[getRandomInt(0, 49)];
     }
 }
+
 
 
 
