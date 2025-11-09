@@ -27,7 +27,7 @@ class State {
 let Alabama = new State("Alabama", "AL", false, []);
 let Alaska = new State("Alaska", "AK", false, []);
 let Arizona = new State("Arizona", "AZ", false, []);
-let Arkansas = new State("Akansas", "AR", false, []);
+let Arkansas = new State("Arkansas", "AR", false, []);
 let California = new State("California", "CA", false, []);
 let Colorado = new State("Colorado", "CO", false, []);
 let Connecticut = new State("Connecticut", "CT", false, []);
@@ -248,7 +248,19 @@ function selectState(){
     // If all states have been visited, do the celebration
     if(allVisited() && visitedStates >= 50){
         console.log("All States have been visited!!!!");
+        const reward_popup = document.getElementById("reward_popup");
+        const container = document.getElementById('fireworks');
+        const fireworks = new Fireworks.default(container);
+        fireworks.start();
+
+    if (reward_popup.style.display == "none"){
+        reward_popup.style.display = "inline-block";
+        reward_popup.innerHTML = "Congradulations!\nYou visited every state!";
     }
+    else {
+        reward_popup.style.display = "none";
+    }
+}
     // If any state has already been visited, move to its neighbor
     else if(anyVisited()){
         currentState.isVisited();
@@ -260,6 +272,7 @@ function selectState(){
         currentState = AllStates[getRandomInt(0, 49)];
     }
 }
+
 
 
 
