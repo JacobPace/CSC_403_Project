@@ -89,7 +89,7 @@ function setAllNeighbors(){
     Alaska.setNeighbors([Washington, Idaho, Montana]);
     Arizona.setNeighbors([California, Nevada, Utah, Colorado, New_Mexico]);
     Arkansas.setNeighbors([Mississippi, Missouri, Oklahoma, Louisiana, Tennessee, Texas]);
-    California.setNeighbors([Oregon, Nevada, Arizona]);
+    California.setNeighbors([Oregon, Nevada, Arizona, Hawaii]);
     Colorado.setNeighbors([Wyoming, Nebraska, Kansas, Oklahoma, Utah, New_Mexico, Arizona]);
     Connecticut.setNeighbors([New_York, Massachusetts, Rhode_Island]);
     Delaware.setNeighbors([Maryland, New_Jersey, Pennsylvania]);
@@ -279,6 +279,7 @@ function selectState(){
         currentState = AllStates[getRandomInt(0, 49)];
     }
 }
+
 
 
 
