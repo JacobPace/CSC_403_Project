@@ -540,14 +540,14 @@ var simplemaps_usmap_mapdata={
       width: 45,
       display: "all"
     },
-    DC: {
-      parent_id: "DC",
-      x: "884",
-      y: "332",
-      pill: "yes",
-      width: 45,
-      display: "all"
-    },
+    // DC: {
+    //   parent_id: "DC",
+    //   x: "884",
+    //   y: "332",
+    //   pill: "yes",
+    //   width: 45,
+    //   display: "all"
+    // },
     MA: {
       parent_id: "MA",
       x: "932",

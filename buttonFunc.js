@@ -27,7 +27,7 @@ class State {
 let Alabama = new State("Alabama", "AL", false, []);
 let Alaska = new State("Alaska", "AK", false, []);
 let Arizona = new State("Arizona", "AZ", false, []);
-let Arkansas = new State("Akansas", "AR", false, []);
+let Arkansas = new State("Arkansas", "AR", false, []);
 let California = new State("California", "CA", false, []);
 let Colorado = new State("Colorado", "CO", false, []);
 let Connecticut = new State("Connecticut", "CT", false, []);
@@ -168,13 +168,13 @@ simplemaps_usmap.hooks.click_state = function(id){
  // Moves to the next state and toggles the popup display based on visibility.
 function nextState(){
     
-    const popup = document.getElementById("popup");
+    const popup = document.getElementById("state_popup");
     const button = document.getElementById("button");
 
-    if (popup.style.display == "none"){
+    if (state_popup.style.display == "none"){
         selectState();
-        popup.style.display = "inline-block";
-        popup.innerHTML = currentState.name;
+        state_popup.style.display = "inline-block";
+        state_popup.innerHTML = currentState.name;
         currentState.isVisited();
         visitedStates++;
         simplemaps_usmap_mapdata.state_specific[currentState.id].color = "#ebb866";
@@ -182,7 +182,7 @@ function nextState(){
         button.innerHTML = "Close Window";
     }
     else {
-        popup.style.display = "none";
+        state_popup.style.display = "none";
         button.innerHTML = "Next State";
     }
 }
@@ -248,7 +248,19 @@ function selectState(){
     // If all states have been visited, do the celebration
     if(allVisited() && visitedStates >= 50){
         console.log("All States have been visited!!!!");
+        const reward_popup = document.getElementById("reward_popup");
+        const container = document.getElementById('fireworks');
+        const fireworks = new Fireworks.default(container);
+        fireworks.start();
+
+    if (reward_popup.style.display == "none"){
+        reward_popup.style.display = "inline-block";
+        reward_popup.innerHTML = "Congradulations!\nYou visited every state!";
     }
+    else {
+        reward_popup.style.display = "none";
+    }
+}
     // If any state has already been visited, move to its neighbor
     else if(anyVisited()){
         currentState.isVisited();
@@ -260,6 +272,8 @@ function selectState(){
         currentState = AllStates[getRandomInt(0, 49)];
     }
 }
+
+
 
 
 
