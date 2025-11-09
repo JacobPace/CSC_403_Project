@@ -11,16 +11,18 @@
             <div class="header"> Tour De Button
             </div>
             <div id="text">
-               <button id="button" onClick="nextState()">Next State</button>
-            </div>
-            <div id="popup" style="display:none">
-            </div>
+               <button id="button" onClick="nextState()">Next State</button></div>
+            <div id="state_popup" style="display:none"></div>
+		    <div id="reward_popup" style="display:none">
+		    <div id="fireworks"></div>
          <h2></h2>
-            <div style="max-width: 700px"> <!-- Keep map above fold -->
+            <div style="max-width: 700px">
 				    <div id="map"></div>
-			   </div>
+			</div>
             <script src="./mapdata.js"></script>
             <script src="./usmap.js"></script>
+		    <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.x/dist/index.umd.js"></script>
             <script src="./buttonFunc.js"></script>
       </body>
 </html>
+
