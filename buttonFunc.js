@@ -168,13 +168,13 @@ simplemaps_usmap.hooks.click_state = function(id){
  // Moves to the next state and toggles the popup display based on visibility.
 function nextState(){
     
-    const popup = document.getElementById("popup");
+    const popup = document.getElementById("state_popup");
     const button = document.getElementById("button");
 
-    if (popup.style.display == "none"){
+    if (state_popup.style.display == "none"){
         selectState();
-        popup.style.display = "inline-block";
-        popup.innerHTML = currentState.name;
+        state_popup.style.display = "inline-block";
+        state_popup.innerHTML = currentState.name;
         currentState.isVisited();
         visitedStates++;
         simplemaps_usmap_mapdata.state_specific[currentState.id].color = "#ebb866";
@@ -182,7 +182,7 @@ function nextState(){
         button.innerHTML = "Close Window";
     }
     else {
-        popup.style.display = "none";
+        state_popup.style.display = "none";
         button.innerHTML = "Next State";
     }
 }
@@ -272,6 +272,7 @@ function selectState(){
         currentState = AllStates[getRandomInt(0, 49)];
     }
 }
+
 
 
 
