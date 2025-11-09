@@ -168,7 +168,7 @@ simplemaps_usmap.hooks.click_state = function(id){
  // Moves to the next state and toggles the popup display based on visibility.
 function nextState(){
     
-    const popup = document.getElementById("state_popup");
+    const state_popup = document.getElementById("state_popup");
     const button = document.getElementById("button");
 
     if (state_popup.style.display == "none"){
@@ -272,6 +272,7 @@ function selectState(){
         currentState = AllStates[getRandomInt(0, 49)];
     }
 }
+
 
 
 
