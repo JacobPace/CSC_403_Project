@@ -12,7 +12,7 @@ body {
   text-align: center;
 }
 
-#popup {  
+#state_popup {  
   font-weight: bold;
   position:fixed;
   left:0;
@@ -29,8 +29,39 @@ body {
   background: white;
   text-align: center;
   box-sizing: content-box;
-  border: 2px ridge black;
+  border: 10px outset white;
   z-index: 70;
+}
+
+#reward_popup {  
+  font-weight: bold;
+  position:fixed;
+  left:0;
+  right:0;
+  margin: auto;
+  top: 20%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 600px;
+  height: auto;
+  padding: 15px; 
+  color: black; 
+  background: white;
+  text-align: center;
+  box-sizing: content-box;
+  border: 10px outset white;
+  z-index: 70;
+}
+
+#fireworks {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  pointer-events: none;
 }
 
 button {
@@ -61,3 +92,4 @@ button {
   margin: 50px auto;  
   margin-left: 300px;
 }
+
