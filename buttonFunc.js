@@ -159,6 +159,9 @@ simplemaps_usmap.hooks.click_state = function(id){
         console.log("There are " + visitedStates + " visited states.");
         simplemaps_usmap_mapdata.state_specific[id].color = "#ebb866";
         simplemaps_usmap.refresh();
+        if (allVisited()){
+            toggleReward();
+        }
     }
     else {
         ; // do nothing if user clicks the state again
@@ -242,16 +245,11 @@ function findNeighborNeighbor(newState){
     
 }
 
-function selectState(){
-    console.log(visitedStates);
-    
-    // If all states have been visited, do the celebration
-    if(allVisited() && visitedStates >= 50){
-        console.log("All States have been visited!!!!");
-        const reward_popup = document.getElementById("reward_popup");
-        const container = document.getElementById('fireworks');
-        const fireworks = new Fireworks.default(container);
-        fireworks.start();
+function toggleReward(){
+    const reward_popup = document.getElementById("reward_popup");
+    const container = document.getElementById('fireworks');
+    const fireworks = new Fireworks.default(container);
+    fireworks.start();
 
     if (reward_popup.style.display == "none"){
         reward_popup.style.display = "inline-block";
@@ -260,6 +258,15 @@ function selectState(){
     else {
         reward_popup.style.display = "none";
     }
+}
+
+function selectState(){
+    console.log(visitedStates);
+    
+    // If all states have been visited, do the celebration
+    if(allVisited() && visitedStates >= 50){
+        console.log("All States have been visited!!!!");
+        toggleReward();
 }
     // If any state has already been visited, move to its neighbor
     else if(anyVisited()){
@@ -272,6 +279,7 @@ function selectState(){
         currentState = AllStates[getRandomInt(0, 49)];
     }
 }
+
 
 
 
