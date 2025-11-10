@@ -1,9 +1,10 @@
 /*
 Class for the State object that contains the values:
     name -> string: name of the state to be displayed on the popup
-    id -> allows for easier integration with simplemaps.
+    id -> string: allows for easier integration with simplemaps
     visited -> boolean: is true/false depeing on if the state has been visited yet to prevent it being selected twice (false by default)
     neighbors -> array: contains a list of neighboring states that can be accessed to move the currently selected state to a non-visited neighbor
+    info -> string: holds tourism information about the state
 
     Also contains the methods:
     setNeighbors(x) -> inputs an array of states to set as the neighbors of the state
@@ -246,6 +247,7 @@ function findNeighborNeighbor(newState){
     
 }
 
+// Toggles a popup and fireworks to appear upon every state being marked visited
 function toggleReward(){
     const reward_popup = document.getElementById("reward_popup");
     const container = document.getElementById('fireworks');
@@ -280,6 +282,7 @@ function selectState(){
         currentState = AllStates[getRandomInt(0, 49)];
     }
 }
+
 
 
 
