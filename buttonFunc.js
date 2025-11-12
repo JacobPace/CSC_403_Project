@@ -141,6 +141,8 @@ function setAllNeighbors(){
 
 let currentState;
 let visitedStates = 0;
+const container = document.getElementById('fireworks');
+const fireworks = new Fireworks.default(container);
 
 // Function to generate a random INT between 2 values
 function getRandomInt(min, max) {
@@ -250,16 +252,15 @@ function findNeighborNeighbor(newState){
 // Toggles a popup and fireworks to appear upon every state being marked visited
 function toggleReward(){
     const reward_popup = document.getElementById("reward_popup");
-    const container = document.getElementById('fireworks');
-    const fireworks = new Fireworks.default(container);
-    fireworks.start();
 
     if (reward_popup.style.display == "none"){
         reward_popup.style.display = "inline-block";
         reward_popup.innerHTML = "Congradulations!<br>You visited every state!";
+        fireworks.start();
     }
     else {
         reward_popup.style.display = "none";
+        fireworks.stop();
     }
 }
 
@@ -282,6 +283,7 @@ function selectState(){
         currentState = AllStates[getRandomInt(0, 49)];
     }
 }
+
 
 
 
